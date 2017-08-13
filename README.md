@@ -3,9 +3,15 @@ Macro to memoize functions in Common Lisp
 
 This is a very simplistic macro to memoize automatically a function in Common Lisp. It does **not** offer any facility offered in more complex packages for memoizing (see for instance [fare-memoization](https://github.com/fare/fare-memoization)).
 
+In particular:
+
+1. The function can have any number of parameters, but should not have &-prefixed special parameters
+2. The function must return a single value
+
 The only content of the file is the macro `defmem`, to be used instead of `defun`, to automatically memoize a function.
 
 **Example**
+
 ```
 (defmem fibonacci (x)
   (if (< x 2)
